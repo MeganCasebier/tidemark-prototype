@@ -1,0 +1,77 @@
+/* Tidemark: a working prototype for a lender that doesn't exist. Plain CSS, no build step. */
+:root { --e-soft: #6A726F; }
+* { box-sizing: border-box; }
+body { margin: 0; padding: 32px 16px 64px; background: #F4F3EF; color: #1C2321; font-family: ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif; }
+main { max-width: 1000px; margin: 0 auto; }
+h1 { font-size: 22px; font-weight: 600; margin: 0 0 6px; }
+.lede { color: #4A524F; margin: 0 0 24px; max-width: 62ch; line-height: 1.5; }
+ul, ol { list-style: none; margin: 0; padding: 0; }
+p { margin: 0; }
+.frame { border-radius: 6px; overflow: hidden; box-shadow: 0 1px 2px rgba(0,0,0,.06), 0 12px 32px -12px rgba(0,0,0,.18); }
+footer { max-width: 1000px; margin: 24px auto 0; font-size: 13px; color: #6A726F; }
+
+/* ---------- Tidemark: the working prototype. A product, so it speaks in the system UI face. ---------- */
+.wt-try { max-width: 1000px; margin-top: 56px; }
+.tm { font-family: ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif; font-size: 14px; line-height: 1.4; color: #1C2321; background: #fff; min-height: 420px; position: relative; text-align: left; }
+.tm button { font: inherit; color: inherit; cursor: pointer; }
+.tm-fallback { padding: 40px; color: var(--e-soft); }
+.tm.is-live .tm-fallback { display: none; }
+.tm-bar { display: flex; flex-wrap: wrap; align-items: center; gap: 8px 20px; padding: 12px 18px; border-bottom: 1px solid #E6E8E4; }
+.tm-logo { font-weight: 700; letter-spacing: -.01em; color: #0F4C5C; }
+.tm-nav { display: flex; gap: 16px; color: #6A726F; }
+.tm-nav .is-on { color: #1C2321; font-weight: 600; }
+.tm-notes-btn { margin-left: auto; padding: 6px 10px; border: 1px solid #C9CFCB; border-radius: 6px; background: #fff; }
+.tm-notes-btn[aria-pressed="true"] { background: #FFF6D6; border-color: #E2C766; }
+.tm-decide { position: relative; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 10px 16px; margin: 14px 18px 0; padding: 12px 14px; border-radius: 8px; background: #FFF3E6; border: 1px solid #F0C9A0; }
+.tm-decide.is-made { background: #EAF5EE; border-color: #B5DCC3; }
+.tm-decide-btns { display: flex; gap: 8px; flex-wrap: wrap; }
+.tm-decide-btns button { padding: 7px 12px; border-radius: 6px; border: 1px solid #1C2321; background: #fff; }
+.tm-decide-btns button:hover { background: #1C2321; color: #fff; }
+.tm-link { border: 0; background: none; text-decoration: underline; padding: 0; }
+.tm-notes { margin: 12px 18px 0; padding: 10px 14px; border-radius: 8px; background: #FFFBEA; border: 1px solid #F0E2A8; }
+.tm-notes li { padding: 4px 0; }
+.tm-notes b, .tm-pin { display: inline-grid; place-items: center; width: 18px; height: 18px; margin-right: 6px; border-radius: 50%; background: #E2B93B; color: #1C2321; font-size: 11px; font-weight: 700; vertical-align: 1px; }
+.tm-tabs { display: flex; flex-wrap: wrap; align-items: center; gap: 6px; padding: 14px 18px 10px; }
+.tm-tabs button { padding: 6px 10px; border-radius: 999px; border: 1px solid #DDE1DE; background: #fff; }
+.tm-tabs button span { color: #6A726F; margin-left: 2px; }
+.tm-tabs button[aria-pressed="true"] { background: #1C2321; color: #fff; border-color: #1C2321; }
+.tm-tabs button[aria-pressed="true"] span { color: #C9CFCB; }
+.tm-body { display: grid; grid-template-columns: minmax(0, 1.5fr) minmax(0, 1fr); border-top: 1px solid #E6E8E4; }
+.tm-list { border-right: 1px solid #E6E8E4; }
+.tm-list li + li { border-top: 1px solid #F0F2EF; }
+.tm-list button { display: grid; grid-template-columns: minmax(0, 1fr) auto; grid-template-areas: "biz state" "id amt" "id owner"; gap: 2px 12px; width: 100%; padding: 12px 18px; border: 0; background: #fff; text-align: left; }
+.tm-list button[aria-pressed="true"] { background: #F2F7F7; box-shadow: inset 3px 0 0 #0F4C5C; }
+.tm-biz { grid-area: biz; font-weight: 600; }
+.tm-id { grid-area: id; color: #6A726F; font-size: 12.5px; }
+.tm-state { grid-area: state; justify-self: end; font-size: 12px; padding: 2px 8px; border-radius: 999px; }
+.tm-state.is-open { background: #FDE8E4; color: #8A2A17; }
+.tm-state.is-borrower { background: #E8EEF9; color: #26457A; }
+.tm-state.is-short { background: #FFF1D6; color: #7A4B00; }
+.tm-state.is-resolved { background: #E3F2E8; color: #1E5B34; }
+.tm-amt { grid-area: amt; justify-self: end; font-variant-numeric: tabular-nums; }
+.tm-owner { grid-area: owner; justify-self: end; font-size: 12px; color: #6A726F; }
+.tm-owner.is-none { color: #B4541F; }
+.tm-empty { padding: 24px 18px; color: #6A726F; }
+.tm-detail { padding: 16px 18px 20px; }
+.tm-detail-id { color: #6A726F; font-size: 12.5px; }
+.tm-detail h4 { font-size: 18px; font-weight: 600; margin: 2px 0 12px; }
+.tm-detail dl { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; }
+.tm-detail dt { font-size: 12px; color: #6A726F; }
+.tm-detail dd { margin: 0; font-weight: 600; font-variant-numeric: tabular-nums; }
+.tm-sub { margin-top: 16px !important; font-size: 12px; color: #6A726F; }
+.tm-attempts li { display: grid; grid-template-columns: 52px 84px 1fr; gap: 8px; padding: 6px 0; border-top: 1px solid #F0F2EF; font-size: 13px; font-variant-numeric: tabular-nums; }
+.tm-attempts .is-ok { color: #1E5B34; }
+.tm-attempts .is-bad { color: #8A2A17; }
+.tm-act { margin-top: 16px; }
+.tm-go { width: 100%; padding: 10px 14px; border: 0; border-radius: 8px; background: #0F4C5C; color: #fff !important; font-weight: 600; }
+.tm-go:disabled { background: #C9CFCB; cursor: not-allowed; }
+.tm-hint { margin-top: 8px !important; font-size: 12.5px; color: #6A726F; }
+.tm-toast { position: absolute; left: 50%; bottom: 14px; transform: translate(-50%, 8px); padding: 8px 14px; border-radius: 8px; background: #1C2321; color: #fff; font-size: 13px; opacity: 0; pointer-events: none; transition: opacity .2s, transform .2s; white-space: nowrap; }
+.tm-toast.is-on { opacity: 1; transform: translate(-50%, 0); }
+@media (max-width: 720px) {
+    .tm-body { grid-template-columns: 1fr; }
+    .tm-list { border-right: 0; border-bottom: 1px solid #E6E8E4; }
+    .tm-nav span:not(.is-on) { display: none; }
+    .tm-toast { white-space: normal; width: calc(100% - 32px); text-align: center; }
+}
+
